@@ -1,0 +1,41 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<NancyTest.Objects.BlogPost>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Ajouter un billet</title>
+    <style>
+        label 
+        {
+            display: inline-block;
+            text-align: right;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/new" method="post">
+    <p>
+        <label>Id :</label>
+        <input type="text" name="Id" value="@Model.Id" />
+    </p>
+    <p>
+        <label>Titre :</label>
+        <input type="text" name="Title" value="@Model.Title" />
+    </p>
+    <p>
+        <label>Contenu :</label>
+        <input type="text" name="Content" value="@Model.Content"/>
+    </p>
+    <p>
+        <label>Tags :</label>
+        <input type="text" name="Tags" value="@string.Join(",", Model.Tags)"/>
+    </p>
+    <p>
+        <label>&nbsp;</label>
+        <input type="submit" value="Créer"/>
+        <a href="/">Annuler</a>
+    </p>
+    </form>
+</body>
+</html>
