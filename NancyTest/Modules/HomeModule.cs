@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using NancyTest.Objects;
 
 namespace NancyTest.Modules
 {
@@ -8,7 +9,15 @@ namespace NancyTest.Modules
         {
             Get["/"] = parameters =>
             {
-                return View["Index"];
+                var blogPost = new BlogPost
+                {
+                    Id = 1,
+                    Title = "De ASP.NET MVC vers Nancy - Etape 2",
+                    Content = "Lorem ipsum...",
+                    Tags = { "c#", "aspnetmvc", "nancy" }
+                };
+
+                return View["Index", blogPost];
             };
         }
     }

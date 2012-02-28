@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<NancyTest.Objects.BlogPost>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,5 +9,24 @@
     <h1>NancyTest</h1>
     <p>Ma vraiment toute première application avec le Micro Framework Nancy !</p>
     <p>Tout ça grâce au billet <a href="http://jhovgaard.net/from-aspnet-mvc-to-nancy-part-1">From ASP.NET MVC to Nancy</a>.</p>
+    <h2>Billets</h2>
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>Title:</td>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <td>Content:</td>
+            <td>@Model.Content</td>
+        </tr>
+        <tr>
+            <td>Tags:</td>
+            <td>@string.Join(", ", Model.Tags)</td>
+        </tr>
+    </table>
 </body>
 </html>
